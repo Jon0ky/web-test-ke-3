@@ -1,0 +1,715 @@
+        * {
+            box-sizing: border-box;
+        }
+        
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .background-text {
+            position: absolute;
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            font-family: 'Archivo Black', sans-serif;
+            font-weight: 900;
+            white-space: nowrap;
+            width: 100%;
+            pointer-events: none;
+            
+            /* Responsive font sizing using clamp for smooth scaling */
+            font-size: clamp(1rem, 8vw, 7.5rem);
+            
+            /* Additional responsive adjustments */
+            font-size: min(8vw, 7.5rem);
+        }
+        
+        .background-text h1 {
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .container img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            display: block;
+        }
+
+        /* Fine-tuned responsive breakpoints for optimal text sizing */
+        @media (max-width: 320px) {
+            .background-text {
+                font-size: 1.5rem;
+                top: 32%;
+            }
+        }
+
+        @media (min-width: 321px) and (max-width: 480px) {
+            .background-text {
+                font-size: 2.2rem;
+                top: 33%;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .background-text {
+                font-size: 3.8rem;
+                top: 34%;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .background-text {
+                font-size: 5.5rem;
+                top: 10%;
+            }
+        }
+
+        @media (min-width: 1025px) and (max-width: 1400px) {
+            .background-text {
+                font-size: 7rem;
+                top: 20%;
+            }
+        }
+
+        @media (min-width: 1401px) {
+            .background-text {
+                font-size: 7.5rem;
+                top: 35%;
+            }
+        }
+
+        /* Container queries for even better responsiveness (modern browsers) */
+        @supports (font-size: 1cqw) {
+            .container {
+                container-type: inline-size;
+            }   
+        }
+
+        /* Ultra-wide screen adjustments */
+        @media (min-width: 1920px) {
+            .background-text {
+                font-size: 8rem;
+            }
+        }
+
+        /* Portrait orientation fine-tuning */
+        @media (orientation: portrait) and (max-width: 768px) {
+            .background-text {
+                font-size: min(12vw, 5rem);
+                top: 17%;
+            }
+        }
+
+        /* Landscape orientation fine-tuning */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .background-text {
+                font-size: min(100vh, 5rem);
+                top: 16%;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #2a2c38, #2d3043, #3f54be);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Header and Navigation Styles */
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0;
+            position: relative;
+            z-index: 100;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        #top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        #logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        nav ul li.active a {
+            background: linear-gradient(45deg, #a66cfd, #a855f7);
+            color: white;
+        }
+
+        #header-image-menu {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        #header-image-menu img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        #image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+
+        /* Existing leaderboard styles */
+        .horizontal-bar {
+            width: 85%;
+            max-width: 800px;
+            height: 120px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .cyan-section {
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            background-color: rgba(235, 235, 235, 0.2);
+            width: 9%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .gray-section {
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            background-color: rgba(235, 235, 235, 0.1);
+            width: 85%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+            position: relative;
+        }
+        
+        .cyan-image {
+            width: 90%;
+            height: 90%;
+            max-width: 300px;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        .rank-number {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .left-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+        }
+        
+        .right-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .avatar-container {
+            display: flex;
+            align-items: center;
+            gap: 19px;
+        }
+        
+        .avatar-wrapper {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+        }
+        
+        .avatar-image {
+            width: 130%;
+            height: 120%;
+            border-radius: 8px;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-45%, -50%);
+        }
+        
+        .avatar-border {
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            width: calc(130% + 6px);
+            height: calc(130% + 6px);
+            object-fit: cover;
+            pointer-events: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-45%, -50%);
+        }
+        
+        .user-info {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+            min-width: 0;
+            flex: 1;
+        }
+        
+        .user-name-level {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+        }
+        
+        .user-name {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+            flex: 1;
+        }
+        
+        .level-badge {
+            background: linear-gradient(45deg, #a66cfd, #a855f7);
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+        
+        .main-role {
+            color: #60a5fa;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .member-role{
+            color: #979eb0;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            margin: 0;
+            white-space: nowrap;
+        }
+        
+        .entry-container {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+        
+        .entry-text {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .entry-current {
+            color: white;
+        }
+        
+        .entry-total {
+            color: #60a5fa;
+        }
+        
+        .damage-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 18px;
+            border-radius: 25px;
+            white-space: nowrap;
+            min-width: 180px;
+        }
+        
+        .damage-icon {
+            width: 30px;
+            height: 23px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+        
+        .damage-text {
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: right;
+            flex: 1;
+        }
+
+        /* Mobile Navigation Styles */
+        @media (max-width: 768px) {
+            #top-header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul li a {
+                text-align: center;
+                padding: 12px;
+            }
+
+            #image-text {
+                font-size: 18px;
+            }
+
+            body {
+                padding: 10px;
+                gap: 8px;
+            }
+            
+            .horizontal-bar {
+                width: 95%;
+                height: 80px;
+            }
+            
+            .cyan-section {
+                padding: 6px;
+                width: 10%;
+            }
+            
+            .gray-section {
+                padding: 10px;
+                width: 88%;
+                gap: 8px;
+            }
+            
+            .rank-number {
+                font-size: 16px;
+            }
+            
+            .left-content {
+                gap: 8px;
+                min-width: 0;
+                flex: 1;
+            }
+            
+            .right-content {
+                gap: 6px;
+                flex-shrink: 0;
+            }
+            
+            .avatar-container {
+                gap: 15px;
+                min-width: 0;
+            }
+            
+            .avatar-wrapper {
+                width: 45px;
+                height: 45px;
+            }
+            
+            .user-info {
+                gap: 8px;
+                min-width: 0;
+            }
+            
+            .user-name {
+                font-size: 13px;
+            }
+            
+            .level-badge {
+                font-size: 9px;
+                padding: 1px 4px;
+            }
+            
+            .main-role, .member-role {
+                font-size: 11px;
+            }
+            
+            .entry-text {
+                font-size: 12px;
+            }
+            
+            .damage-container {
+                padding: 8px 12px;
+                gap: 8px;
+                min-width: 140px;
+                justify-content: space-between;
+            }
+            
+            .damage-text {
+                font-size: 10px;
+            }
+            
+            .damage-icon {
+                width: 16px;
+                height: 16px;
+            }
+
+            .cyan-image {
+                width: 85%;
+                height: 85%;
+                max-width: 300px;
+                max-height: 300px;
+                object-fit: contain;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #top-header {
+                padding: 10px;
+            }
+
+            nav ul {
+                gap: 8px;
+            }
+
+            nav ul li a {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            body {
+                padding: 8px;
+                gap: 0.1px;
+            }
+            
+            .horizontal-bar {
+                width: 98%;
+                height: 70px;
+            }
+            
+            .cyan-section {
+                padding: 4px;
+                width: 10%;
+            }
+            
+            .gray-section {
+                padding: 8px;
+                width: 100%;
+            }
+            
+            .rank-number {
+                font-size: 14px;
+            }
+            
+            .left-content {
+                gap: 6px;
+            }
+            
+            .right-content {
+                gap: 4px;
+            }
+            
+            .avatar-container {
+                gap: 12px;
+            }
+            
+            .avatar-wrapper {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .user-info {
+                gap: 8px;
+            }
+            
+            .user-name {
+                font-size: 11px;
+            }
+            
+            .level-badge {
+                font-size: 8px;
+                padding: 1px 3px;
+            }
+            
+            .main-role, .member-role {
+                font-size: 9px;
+            }
+            
+            .entry-text {
+                font-size: 10px;
+            }
+            
+            .damage-container {
+                padding: 6px 10px;
+                gap: 6px;
+                border-radius: 18px;
+                min-width: 120px;
+                justify-content: space-between;
+            }
+            
+            .damage-text {
+                font-size: 9px;
+            }
+            
+            .damage-icon {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .horizontal-bar {
+                height: 60px;
+            }
+            
+            .cyan-section {
+                width: 12%;
+            }
+            
+            .gray-section {
+                width: 100%;
+                padding: 6px;
+            }
+            
+            .rank-number {
+                font-size: 12px;
+            }
+            
+            .avatar-wrapper {
+                width: 30px;
+                height: 30px;
+            }
+
+            .user-info {
+                gap: 6px;
+            }
+            
+            .user-name {
+                font-size: 11px;
+            }
+            
+            .level-badge {
+                font-size: 7px;
+                padding: 1px 2px;
+            }
+            
+            .main-role, .member-role {
+                font-size: 10px;
+            }
+            
+            .entry-text {
+                font-size: 9px;
+            }
+            
+            .damage-container {
+                padding: 5px 8px;
+                gap: 5px;
+                min-width: 100px;
+                justify-content: space-between;
+            }
+            
+            .damage-text {
+                font-size: 8px;
+            }
+            
+            .damage-icon {
+                width: 12px;
+                height: 12px;
+            }
+
+            .avatar-image {
+                width: 120%;
+                height: 120%;
+                border-radius: 8px;
+                object-fit: cover;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-45%, -50%);
+            }
+
+            .avatar-border {
+                position: absolute;
+                top: -3px;
+                left: -3px;
+                width: calc(120% + 6px);
+                height: calc(120% + 6px);
+                object-fit: cover;
+                pointer-events: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-45%, -50%);
+            }
+        }
