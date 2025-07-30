@@ -9,6 +9,7 @@
             margin: 0 auto;
         }
         
+        
         .background-text {
             position: absolute;
             top: 35%;
@@ -123,6 +124,8 @@
             padding: 20px;
             min-height: 100vh;
             background: linear-gradient(180deg, #2a2c38, #2d3043, #3f54be);
+            background-attachment: fixed;
+            background-size: 100% 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -147,6 +150,7 @@
             padding: 10px 20px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border-radius: 6px;
         }
 
         #logo img {
