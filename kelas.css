@@ -257,7 +257,7 @@
         
         .rank-number {
             color: white;
-            font-family: Arial, sans-serif;
+            font-family: "Noto Sans KR", sans-serif;
             font-size: 20px;
             font-weight: bold;
         }
@@ -644,7 +644,8 @@
             }
             
             .rank-number {
-                font-size: 18px;
+                font-size: 15px;
+                font-weight: 450;
             }
             
             .avatar-wrapper {
